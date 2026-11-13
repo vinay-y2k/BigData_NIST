@@ -1,0 +1,6 @@
+# ignore all hidden files
+.*
+
+#un-ignore .gitignore file
+!.gitignore
+!.env.example
