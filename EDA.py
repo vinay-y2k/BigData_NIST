@@ -139,7 +139,7 @@ def run_laptop_ingestion_pipeline():
 
     # Return buffer pointer position window back to position 0 before flight
     buffer.seek(0)
-    print(f"🚀 Streaming {total_rows:,} records directly into your local container...")
+    print(f" Streaming {total_rows:,} records directly into your local container...")
     try:
         cursor.copy_from(
             buffer, 
@@ -149,10 +149,10 @@ def run_laptop_ingestion_pipeline():
         conn.commit()
         duration = time.time() - start_time
         print(f"\n✅ Ingestion Pipeline Success!")
-        print(f"📈 Loaded {total_rows:,} total rows in {duration:.2f} seconds ({total_rows/duration:.2f} rows/sec).")
+        print(f" Loaded {total_rows:,} total rows in {duration:.2f} seconds ({total_rows/duration:.2f} rows/sec).")
     except Exception as e:
         conn.rollback()
-        print(f"❌ Ingestion stopped: {e}")
+        print(f"Ingestion stopped: {e}")
     finally:
         cursor.close()
         conn.close()
